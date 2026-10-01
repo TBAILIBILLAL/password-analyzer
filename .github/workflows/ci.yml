@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Tests (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      # no install step: the project uses only the standard library
+      - run: python -m unittest discover -s tests -t . -v
+      - name: Command line smoke test
+        shell: bash
+        run: |
+          echo "Summer2024" | python -m password_analyzer check --stdin --no-history || test $? -eq 1
+          python -m password_analyzer generate
