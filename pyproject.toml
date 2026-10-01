@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "password-analyzer"
+version = "1.0.0"
+description = "Evaluates password strength, suggests stronger alternatives and refuses reused passwords"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+password-analyzer = "password_analyzer.cli:main"
+
+[tool.setuptools]
+packages = ["password_analyzer"]
+
+[tool.setuptools.package-data]
+password_analyzer = ["data/*.txt"]
