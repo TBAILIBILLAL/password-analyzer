@@ -1,6 +1,6 @@
 # Password Strength Analyzer
 
-[![CI](https://github.com/billy001-11/password-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/billy001-11/password-analyzer/actions/workflows/ci.yml)
+[![CI](https://github.com/TBAILIBILLAL/password-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/TBAILIBILLAL/password-analyzer/actions/workflows/ci.yml)
 
 A tool that tells you how strong a password really is, explains why, suggests stronger
 alternatives and refuses passwords you have used before. It runs as a desktop window
